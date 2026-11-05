@@ -84,9 +84,9 @@ export default function HoloRobot({ name, started, onSpeak }) {
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    const accent = cssColor('--accent', '#6fc3ff');
-    const signal = cssColor('--signal', '#ffb547');
-    const ok = cssColor('--ok', '#5fe0a6');
+    const accent = cssColor('--holo-accent', '#6fc3ff');
+    const signal = cssColor('--holo-signal', '#ffb547');
+    const ok = cssColor('--holo-ok', '#5fe0a6');
     const white = new THREE.Color('#ffffff');
     const scene = new THREE.Scene();
     const cam = new THREE.PerspectiveCamera(32, 1, 0.1, 60);

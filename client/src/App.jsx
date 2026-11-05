@@ -19,6 +19,7 @@ import CV from './components/CV.jsx';
 import CommandPalette from './components/CommandPalette.jsx';
 import { reducedMotion } from './hooks/motion.js';
 import { getProfile } from './api.js';
+import { useTheme } from './hooks/theme.js';
 
 const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth' });
 
@@ -28,6 +29,7 @@ export default function App() {
   const [booted, setBooted] = useState(reducedMotion());
   const [cvOpen, setCvOpen] = useState(false);
   const [palette, setPalette] = useState(false);
+  const [theme, toggleTheme] = useTheme();
   const openCV = useCallback(() => setCvOpen(true), []);
   const closeCV = useCallback(() => setCvOpen(false), []);
 
@@ -47,12 +49,13 @@ export default function App() {
       { group: 'Aller à', label: 'Accueil', hint: '↑', run: () => go('top') },
       ...[...SECTIONS, ...extra].map(([id, label]) => ({ group: 'Aller à', label: label[0].toUpperCase() + label.slice(1), run: () => go(id) })),
       { group: 'Actions', label: 'Ouvrir mon CV', hint: 'cv', run: openCV },
+      { group: 'Actions', label: theme === 'light' ? 'Passer en mode sombre' : 'Passer en mode clair', hint: theme === 'light' ? '☾' : '☀', run: toggleTheme },
       { group: 'Actions', label: "Copier l'adresse email", run: () => navigator.clipboard?.writeText(profile.contact.email).catch(() => {}) },
       { group: 'Actions', label: 'Demander un devis', run: () => go('contact') },
       { group: 'Liens', label: 'GitHub', hint: '↗', run: () => window.open(profile.contact.github, '_blank', 'noopener') },
       { group: 'Liens', label: 'LinkedIn', hint: '↗', run: () => window.open(profile.contact.linkedin, '_blank', 'noopener') },
     ];
-  }, [profile, openCV]);
+  }, [profile, openCV, theme, toggleTheme]);
 
   if (error) {
     return (
@@ -72,7 +75,7 @@ export default function App() {
       <Cursor />
       {profile && (
         <>
-          <Nav profile={profile} onPalette={() => setPalette(true)} onOpenCV={openCV} />
+          <Nav profile={profile} onPalette={() => setPalette(true)} onOpenCV={openCV} theme={theme} toggleTheme={toggleTheme} />
           <Hero profile={profile} started={booted} onOpenCV={openCV} />
           <Marquee items={profile.marquee} />
           <main>

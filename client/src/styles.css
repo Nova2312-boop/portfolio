@@ -12,6 +12,14 @@
   --f-display: 'Chakra Petch', 'Segoe UI', system-ui, sans-serif;
   --f-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --f-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Menlo, monospace;
+  /* couleurs fixes des scènes 3D (inversées par filtre en mode clair) */
+  --holo-accent: #6fc3ff;
+  --holo-signal: #ffb547;
+  --holo-ok: #5fe0a6;
+  --scan: rgba(255, 255, 255, 0.025);
+  --term-bg: #06090e;
+  --cur: #fff;
+  --shadow: rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -99,7 +107,7 @@ nav {
 .hero::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, var(--scan) 0 1px, transparent 1px 3px),
     radial-gradient(ellipse at 30% 50%, transparent 30%, var(--bg) 95%);
 }
 .hero-c { position: relative; z-index: 2; padding-block: 80px; }
@@ -199,7 +207,7 @@ h2 { font-family: var(--f-display); font-weight: 600; font-size: clamp(32px, 5vw
 .ev p { color: var(--muted); margin: 0; max-width: 62ch; }
 
 /* Terminal */
-.term { border: 1px solid var(--line); background: #06090e; font-family: var(--f-mono); font-size: 14px; box-shadow: 0 30px 80px -30px rgba(111, 195, 255, 0.25); }
+.term { border: 1px solid var(--line); background: var(--term-bg); font-family: var(--f-mono); font-size: 14px; box-shadow: 0 30px 80px -30px rgba(111, 195, 255, 0.25); }
 .term-bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--muted); }
 .term-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
 .term-bar span { margin-left: 8px; }
@@ -243,9 +251,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
 /* Curseur */
 .cur, .cur-dot { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 90; mix-blend-mode: difference; }
-.cur { width: 34px; height: 34px; border: 1px solid #fff; border-radius: 50%; transition: width 0.25s, height 0.25s; }
+.cur { width: 34px; height: 34px; border: 1px solid var(--cur); border-radius: 50%; transition: width 0.25s, height 0.25s; }
 .cur.big { width: 64px; height: 64px; }
-.cur-dot { width: 4px; height: 4px; background: #fff; border-radius: 50%; }
+.cur-dot { width: 4px; height: 4px; background: var(--cur); border-radius: 50%; }
 @media (hover: none) { .cur, .cur-dot { display: none; } }
 
 @media (prefers-reduced-motion: reduce) {
@@ -970,3 +978,36 @@ kbd { font-family: var(--f-mono); font-size: 10px; border: 1px solid var(--line)
 .services, .mon { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 1100px) { .services, .mon { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .services, .mon { grid-template-columns: minmax(0, 1fr); } }
+
+/* ============ Mode clair ============ */
+:root[data-theme='light'] {
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --line: #d3dce8;
+  --fg: #0d1726;
+  --muted: #55657a;
+  --accent: #0a6cb0;
+  --signal: #b36a00;
+  --ok: #12804f;
+  --err: #c2333a;
+  --scan: rgba(13, 23, 38, 0.03);
+  --term-bg: #ffffff;
+  --cur: #0d1726;
+  --shadow: rgba(13, 23, 38, 0.18);
+  color-scheme: light;
+}
+/* les scènes 3D sont dessinées en lumière additive (faite pour un fond sombre) :
+   en clair on inverse leurs couleurs, les hologrammes deviennent bleu foncé sur fond clair */
+[data-theme='light'] .gl,
+[data-theme='light'] .holo,
+[data-theme='light'] .hshow-gl,
+[data-theme='light'] .vis canvas,
+[data-theme='light'] .pd-ph canvas { filter: invert(1) hue-rotate(180deg); }
+[data-theme='light'] .holo { opacity: 0.75; }
+[data-theme='light'] .modal, [data-theme='light'] .palette { box-shadow: 0 40px 120px -20px var(--shadow), 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent); }
+[data-theme='light'] .lightbox { background: rgba(244, 247, 251, 0.95); }
+@media (max-width: 900px) { [data-theme='light'] .holo { opacity: 0.35; } }
+.theme-btn { display: inline-grid; place-items: center; padding-inline: 10px; }
+.theme-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+html { transition: background-color 0.3s; }
+body { transition: background-color 0.3s, color 0.3s; }

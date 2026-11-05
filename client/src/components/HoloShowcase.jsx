@@ -94,7 +94,7 @@ export default function HoloShowcase({ projects, onOpen }) {
       return;
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    const accent = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#6fc3ff');
+    const accent = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--holo-accent').trim() || '#6fc3ff');
 
     const scene = new THREE.Scene();
     const cam = new THREE.PerspectiveCamera(34, 1, 0.1, 50);

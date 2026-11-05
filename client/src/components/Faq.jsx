@@ -65,7 +65,7 @@ export default function Faq({ items }) {
               {voiceOn ? <path d="M16 9a4 4 0 0 1 0 6 M18.5 6.5a7.5 7.5 0 0 1 0 11" /> : <path d="M16.5 9.5l5 5 M21.5 9.5l-5 5" />}
             </svg>
             Voix robot : {voiceOn ? 'activée' : 'désactivée'}
-            <small>{voiceOn ? 'question : voix de femme · réponse : voix d’homme' : 'clique pour l’activer'}</small>
+            {!voiceOn && <small>clique pour l’activer</small>}
           </button>
         )}
         <div className="faq" onMouseLeave={() => { leave(); stopSpeaking(); setTalking(-1); }}>

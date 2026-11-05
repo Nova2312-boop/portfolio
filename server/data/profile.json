@@ -695,7 +695,9 @@
     }
   ],
   "cv": {
-    "summary": "Développeur full-stack avec 3 ans d'expérience sur des applications web et des API en production, principalement en fintech, logistique et éducation. À l'aise sur toute la chaîne, de la base de données au déploiement.",
+    "summary": "Développeur web & mobile et data analyste, étudiant en Master 2 BIHAR à l'ESATIC. Rigoureux et curieux, je conçois des applications fiables, de l'API au déploiement, et je transforme les données en décisions claires.",
+    "photo": "/cv/photo.jpg",
+    "interests": [],
     "file": ""
   },
   "github": {

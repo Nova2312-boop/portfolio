@@ -103,7 +103,7 @@ nav {
 .glitch .sc-hide { opacity: 0; }
 .glitch .sc-now { color: var(--accent); text-shadow: 0 0 18px var(--accent), 0 0 42px color-mix(in srgb, var(--accent) 60%, transparent); }
 .glitch.speaking { text-shadow: 0 0 22px color-mix(in srgb, var(--accent) 35%, transparent); }
-@media (max-width: 900px) { .holo { opacity: 0.28; } }
+@media (max-width: 900px) { .holo { opacity: 0.55; } }
 .hero::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
@@ -496,12 +496,11 @@ kbd { font-family: var(--f-mono); font-size: 10px; border: 1px solid var(--line)
 
 /* Impression : seule la feuille du CV sort */
 @media print {
-  body * { visibility: hidden !important; }
-  .cv-sheet, .cv-sheet * { visibility: visible !important; }
+  html, body { background: #fff !important; height: auto !important; }
+  #root > :not(.modal-back), .cv-actions, .modal-x, .modal-close { display: none !important; }
   .modal-back { position: static; backdrop-filter: none; background: none; padding: 0; }
   .modal { position: static; overflow: visible; border: 0; box-shadow: none; padding: 0; width: 100%; max-height: none; }
   .cv-sheet { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; padding: 0; }
-  @page { margin: 14mm; }
 }
 .gl-off { background: radial-gradient(ellipse at 70% 60%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%); }
 
@@ -1006,8 +1005,75 @@ kbd { font-family: var(--f-mono); font-size: 10px; border: 1px solid var(--line)
 [data-theme='light'] .holo { opacity: 0.75; }
 [data-theme='light'] .modal, [data-theme='light'] .palette { box-shadow: 0 40px 120px -20px var(--shadow), 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent); }
 [data-theme='light'] .lightbox { background: rgba(244, 247, 251, 0.95); }
-@media (max-width: 900px) { [data-theme='light'] .holo { opacity: 0.35; } }
+@media (max-width: 900px) { [data-theme='light'] .holo { opacity: 0.6; } }
 .theme-btn { display: inline-grid; place-items: center; padding-inline: 10px; }
 .theme-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 html { transition: background-color 0.3s; }
 body { transition: background-color 0.3s, color 0.3s; }
+
+/* ============ CV (mise en page deux colonnes, format A4) ============ */
+.cv2 { --side: #2c3d52; --side-ink: #f3f6fa; --ink: #2a3038; --soft: #5b6573; display: grid; grid-template-columns: 35% minmax(0, 1fr); padding: 0; background: #fff; color: var(--ink); font-family: var(--f-body); line-height: 1.5; }
+.cv2-side { background: var(--side); color: var(--side-ink); padding: 0 0 40px; display: grid; align-content: start; gap: 34px; }
+.cv2-photo { width: 100%; aspect-ratio: 5 / 6; object-fit: cover; object-position: center 30%; display: block; border-bottom: 8px solid #fff; }
+.cv2 section { padding-block: 0; border: 0; }
+.cv2-side section { padding: 0 28px; }
+.cv2 .cv2-h { font-family: var(--f-body); font-weight: 500; font-size: 18px; letter-spacing: 0.32em; text-transform: uppercase; margin: 0 0 22px; color: inherit; border: 0; padding: 0; }
+.cv2 .cv2-h i { display: block; width: 58px; height: 6px; border-radius: 3px; background: currentColor; margin-top: 14px; }
+.cv2 .cv2-side .cv2-h { text-align: center; }
+.cv2 .cv2-side .cv2-h i { margin-inline: auto; background: #fff; }
+.cv2-profile { margin: 0; text-align: center; font-size: 14px; line-height: 1.7; color: var(--side-ink); }
+.cv2-contact, .cv2-interests { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; font-size: 13px; }
+.cv2-contact li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; align-items: center; }
+.cv2-contact span { overflow-wrap: anywhere; }
+.cv2-contact svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.cv2-interests li { display: grid; gap: 2px; }
+.cv2-interests b { font-weight: 500; text-transform: uppercase; font-size: 12px; letter-spacing: 0.06em; }
+
+.cv2-main { padding: 48px 40px 40px; display: grid; align-content: start; gap: 30px; }
+.cv2 .cv2-main .cv2-h { color: var(--ink); font-size: 19px; }
+.cv2 .cv2-main .cv2-h i { background: var(--side); }
+.cv2-head h1 { font-family: var(--f-body); font-weight: 400; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.05; margin: 0; color: #3a3f46; letter-spacing: 0.01em; }
+.cv2-role { margin-top: 12px; font-size: 14px; letter-spacing: 0.34em; text-transform: uppercase; color: #3a3f46; }
+.cv2-edu { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.cv2-edu b { font-weight: 700; }
+.cv2-edu span { font-weight: 500; color: var(--soft); }
+.cv2-job { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 18px; margin-bottom: 22px; }
+.cv2-job:last-child { margin-bottom: 0; }
+.cv2-job-when { display: grid; align-content: start; gap: 4px; font-size: 13px; }
+.cv2-job-when b { font-weight: 700; }
+.cv2-job-when span { font-weight: 600; color: var(--ink); }
+.cv2-job h3 { font-family: var(--f-body); font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 6px; color: var(--ink); }
+.cv2-job ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 12.5px; color: var(--soft); }
+.cv2-skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.cv2-skills h4 { margin: 0 0 10px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink); }
+.cv2-lang, .cv2-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 13px; color: var(--ink); }
+.cv2-lang li { display: grid; grid-template-columns: auto 1fr; gap: 6px; }
+
+@media (max-width: 720px) {
+  .cv2 { grid-template-columns: minmax(0, 1fr); }
+  .cv2-photo { max-width: 240px; margin: 0 auto; border: 0; }
+  .cv2-main { padding: 32px 22px; }
+  .cv2-job { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .cv2-skills { grid-template-columns: minmax(0, 1fr); }
+}
+@media print {
+  .cv2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; min-height: 297mm; grid-template-columns: 35% minmax(0, 1fr); }
+  .cv2-photo { max-width: none; border-bottom: 8px solid #fff; }
+  .cv2-job { break-inside: avoid; margin-bottom: 12px; }
+  .cv2 { height: 297mm; overflow: hidden; font-size: 12px; }
+  .cv2-main { padding: 30px 30px 24px; gap: 18px; }
+  .cv2-side { gap: 24px; }
+  .cv2 .cv2-h { margin-bottom: 14px; font-size: 16px !important; }
+  .cv2 .cv2-h i { margin-top: 9px; height: 5px; }
+  .cv2-head h1 { font-size: 34px; }
+  .cv2-role { font-size: 12px; margin-top: 8px; }
+  .cv2-edu { font-size: 11.5px; gap: 4px; }
+  .cv2-job { grid-template-columns: 104px minmax(0, 1fr); gap: 12px; }
+  .cv2-job-when { font-size: 11px; }
+  .cv2-job h3 { font-size: 11px; margin-bottom: 4px; }
+  .cv2-job ul { font-size: 10.5px; gap: 2px; }
+  .cv2-profile, .cv2-contact { font-size: 12px; }
+  .cv2-lang, .cv2-list, .cv2-skills h4 { font-size: 11px; }
+  .cv2-photo { aspect-ratio: 1 / 1; }
+  @page { size: A4; margin: 0; }
+}

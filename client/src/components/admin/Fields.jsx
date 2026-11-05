@@ -24,12 +24,12 @@ const LABELS = {
   language: 'Langage', platform: 'Plateforme', visibility: 'Visibilité', testimonials: 'Avis clients', quote: 'Citation',
   example: 'Exemple à remplacer', context: 'Collaboration (affichée tant qu’il n’y a pas de citation)', faq: 'Questions fréquentes', q: 'Question', a: 'Réponse', contact: 'Contact',
   email: 'Email', linkedin: 'LinkedIn', phone: 'Téléphone', whatsapp: 'WhatsApp (chiffres seulement)', src: 'Image',
-  caption: 'Légende',
+  caption: 'Légende', photo: 'Photo du CV', interests: 'Centres d’intérêt (CV)',
 };
 const LONG = new Set(['context', 'tagline', 'text', 'description', 'problem', 'solution', 'learnings', 'summary', 'quote', 'a', 'about']);
 const SELECTS = { viz: ['wave', 'graph', 'bars'], visibility: ['privé', 'public'], platform: ['GitHub', 'GitLab', 'Bitbucket'] };
 const DICTS = new Set(['architecture']);
-const UPLOADS = { file: 'application/pdf', src: 'image/*' };
+const UPLOADS = { file: 'application/pdf', src: 'image/*', photo: 'image/*' };
 const TITLE_KEYS = ['title', 'name', 'step', 'q', 'group', 'label', 'when', 'caption', 'value'];
 
 // Modèles utilisés quand une liste est vide (sinon on part de la forme du premier élément)
@@ -56,6 +56,7 @@ const TEMPLATES = {
   repos: { name: '', description: '', language: '', platform: 'GitHub', org: '', visibility: 'privé' },
   testimonials: { quote: '', name: '', role: '', context: '', example: false },
   faq: { q: '', a: '' },
+  interests: { label: '', value: '' },
 };
 
 export const labelOf = (k) => LABELS[k] ?? k;
@@ -150,9 +151,9 @@ function Primitive({ k, value, onChange, ctx }) {
   if (!UPLOADS[k]) return input;
   return (
     <div className="ad-filefield">
-      {k === 'src' && text && <img src={assetUrl(text)} alt="" />}
+      {(k === 'src' || k === 'photo') && text && <img src={assetUrl(text)} alt="" />}
       {input}
-      <UploadButton accept={UPLOADS[k]} folder={ctx.folder} label={k === 'src' ? 'Remplacer l’image' : 'Envoyer un PDF'} onDone={([u]) => onChange(u)} />
+      <UploadButton accept={UPLOADS[k]} folder={ctx.folder} label={k === 'file' ? 'Envoyer un PDF' : 'Remplacer l’image'} onDone={([u]) => onChange(u)} />
     </div>
   );
 }

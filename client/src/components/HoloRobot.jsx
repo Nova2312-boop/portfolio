@@ -315,8 +315,12 @@ export default function HoloRobot({ name, started, onSpeak }) {
       hw = (viewH * cam.aspect) / 2;
       wide = cam.aspect > 1.15;
       // bien à droite pour laisser le grand nom lisible
-      stage.position.x = wide ? hw * 0.64 : 0; // robot à droite, texte à gauche
-      stage.scale.setScalar(wide ? 0.88 : 1);
+      // grand écran : robot à droite du texte ; téléphone : robot réduit en bas à droite, drones bien visibles
+      stage.position.set(wide ? hw * 0.64 : hw * 0.5, wide ? 0 : -1.4, 0);
+      stage.scale.setScalar(wide ? 0.88 : 0.48);
+      scanner.g.scale.setScalar(wide ? 0.9 : 1.2);
+      carrier.g.scale.setScalar(wide ? 0.75 : 1.05);
+      escort.g.scale.setScalar(wide ? 0.45 : 0.6);
       analyst.visible = wide;
       // sous les boutons, à gauche, en plus petit
       analyst.scale.setScalar(0.62);
@@ -386,7 +390,8 @@ export default function HoloRobot({ name, started, onSpeak }) {
       cargo.rotation.x = Math.sin(t * 0.7) * 0.3;
 
       const ea = t * 0.7;
-      escort.g.position.set(stage.position.x + Math.cos(ea) * 1.7, robot.position.y + 2.6 + Math.sin(t * 1.6) * 0.2, Math.sin(ea) * 1.7);
+      const ss = stage.scale.x;
+      escort.g.position.set(stage.position.x + Math.cos(ea) * 1.7 * ss, stage.position.y + (robot.position.y + 2.6) * ss + Math.sin(t * 1.6) * 0.2, Math.sin(ea) * 1.7 * ss);
       escort.g.rotation.y = -ea;
 
       // mini-robot analyste : il regarde son graphique et le met à jour

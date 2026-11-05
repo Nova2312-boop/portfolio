@@ -49,7 +49,7 @@ export default function Contact({ contact, availability }) {
       <div className="wrap">
         <div className="contact">
           <Reveal>
-            <div className="addr">0x0B</div>
+            <div className="addr">0x0A</div>
             <p className="big">
               Un projet ?<br />
               <em>On en parle.</em>

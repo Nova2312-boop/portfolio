@@ -57,7 +57,7 @@ export default function Faq({ items }) {
   return (
     <section id="faq">
       <div className="wrap">
-        <SectionHead addr="0x0A" title="Questions fréquentes" />
+        <SectionHead addr="0x09" title="Questions fréquentes" />
         {canSpeak && (
           <button type="button" className={`faq-voice ${voiceOn ? 'on' : ''}`} onClick={toggleVoice} aria-pressed={voiceOn}>
             <svg viewBox="0 0 24 24" aria-hidden="true">

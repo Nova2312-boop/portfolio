@@ -138,7 +138,7 @@ export default function Terminal({ profile, onOpenCV }) {
   return (
     <section id="terminal">
       <div className="wrap">
-        <SectionHead addr="0x09" title="Terminal" />
+        <SectionHead addr="0x08" title="Terminal" />
         <div className={`term-stage mood-${mood} ${talking ? 'talking' : ''}`} ref={stage}>
         <TermBot />
         <div className="term">

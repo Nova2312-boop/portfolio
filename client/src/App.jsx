@@ -43,6 +43,8 @@ export default function App() {
     if (!profile) return [];
     const extra = [['process', 'méthode'], ['skills', 'compétences'], ['avis', 'avis clients'], ['terminal', 'terminal'], ['faq', 'questions fréquentes']];
     return [
+      // retour en haut de page (indispensable sur téléphone, où le menu remplace les liens)
+      { group: 'Aller à', label: 'Accueil', hint: '↑', run: () => go('top') },
       ...[...SECTIONS, ...extra].map(([id, label]) => ({ group: 'Aller à', label: label[0].toUpperCase() + label.slice(1), run: () => go(id) })),
       { group: 'Actions', label: 'Ouvrir mon CV', hint: 'cv', run: openCV },
       { group: 'Actions', label: "Copier l'adresse email", run: () => navigator.clipboard?.writeText(profile.contact.email).catch(() => {}) },

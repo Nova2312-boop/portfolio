@@ -1,0 +1,3 @@
+Mets ici les captures de tes projets, un dossier par projet :
+  payflow-ci/1.png, payflow-ci/2.png ...
+Puis référence-les dans profile.json : "images": ["/projects/payflow-ci/1.png"]

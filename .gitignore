@@ -1,0 +1,8 @@
+node_modules/
+client/dist/
+server/.env
+server/data/messages.json
+.DS_Store
+client/dist-demo/
+server/data/backups/
+server/data/profile.json.tmp

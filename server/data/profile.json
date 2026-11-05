@@ -1,0 +1,810 @@
+{
+  "name": "AGNISSAN Ange Samuel",
+  "handle": "agnissan-samuel",
+  "location": "Abidjan, Côte d'Ivoire",
+  "coords": "LAT 5.3600° N · LON 4.0083° W",
+  "timezone": "Africa/Abidjan",
+  "roles": [
+    "Développeur Web & Mobile",
+    "Data Analyste",
+    "Créateur d'interfaces",
+    "Passionné de données"
+  ],
+  "tagline": "Je conçois des applications web et mobiles rapides, et je transforme les données en tableaux de bord et en décisions claires. Du schéma de base de données jusqu'au dernier pixel.",
+  "availability": {
+    "available": true,
+    "label": "Disponible pour missions dès décembre 2026",
+    "types": [
+      "Freelance",
+      "CDI",
+      "Remote"
+    ]
+  },
+  "about": [
+    "Étudiant en Master 2 BIHAR (Big Data Intelligence for Human Augmented Reality) à l'ESATIC, j'évolue à la croisée du développement logiciel et de la science des données.",
+    "Tout a commencé en classe de Première : l'intelligence artificielle m'est apparue comme un univers immense, que je me suis promis d'explorer. Ce qui n'était qu'une curiosité est devenu une passion, puis une véritable vocation.",
+    "Aujourd'hui, je conçois des applications web et mobiles élégantes et performantes, et je donne une voix aux données : les collecter, les analyser, puis les transformer en décisions éclairées."
+  ],
+  "specs": [
+    {
+      "label": "Rôle",
+      "value": "Dév. Web & Mobile · Data"
+    },
+    {
+      "label": "Base",
+      "value": "Abidjan, CI · UTC+0"
+    },
+    {
+      "label": "Langues",
+      "value": "Français · Anglais"
+    },
+    {
+      "label": "Permis",
+      "value": "B"
+    }
+  ],
+  "stats": [
+    {
+      "value": 3,
+      "suffix": "+",
+      "label": "années d'expérience"
+    },
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "projets livrés"
+    },
+    {
+      "value": 6,
+      "suffix": "",
+      "label": "clients accompagnés"
+    },
+    {
+      "value": 99,
+      "suffix": ",9 %",
+      "label": "disponibilité des API en prod"
+    }
+  ],
+  "marquee": [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "Node.js",
+    "NestJS",
+    "PostgreSQL",
+    "Prisma",
+    "Redis",
+    "Socket.io",
+    "Python",
+    "SQL",
+    "Big Data",
+    "IA",
+    "Docker",
+    "Coolify",
+    "OVHcloud",
+    "Cloudflare",
+    "Jest",
+    "Git"
+  ],
+  "services": [
+    {
+      "code": "SRV-01",
+      "title": "Site vitrine & portfolio",
+      "description": "Un site rapide, bien référencé et facile à mettre à jour pour présenter ton activité.",
+      "features": [
+        "Design sur mesure",
+        "Responsive mobile",
+        "SEO de base",
+        "Formulaire de contact"
+      ],
+      "price": "à partir de 250 000 FCFA",
+      "delay": "1 à 2 semaines"
+    },
+    {
+      "code": "SRV-02",
+      "title": "Application web sur mesure",
+      "description": "Tableau de bord, plateforme métier ou SaaS : de la maquette à la mise en production.",
+      "features": [
+        "React / Next.js",
+        "Comptes et rôles",
+        "Paiement mobile money",
+        "Back-office"
+      ],
+      "price": "à partir de 900 000 FCFA",
+      "delay": "4 à 10 semaines",
+      "featured": true
+    },
+    {
+      "code": "SRV-03",
+      "title": "API & back-end",
+      "description": "Des API REST documentées, sécurisées et prêtes à encaisser la charge.",
+      "features": [
+        "Node.js / Express",
+        "PostgreSQL ou MongoDB",
+        "Auth JWT",
+        "Documentation Swagger"
+      ],
+      "price": "à partir de 500 000 FCFA",
+      "delay": "2 à 6 semaines"
+    },
+    {
+      "code": "SRV-04",
+      "title": "Maintenance & DevOps",
+      "description": "Déploiement sur serveurs OVH orchestré avec Coolify, mises à jour, sauvegardes et surveillance continue de tes applications.",
+      "features": [
+        "Déploiement OVH + Coolify",
+        "Docker",
+        "CI/CD GitHub Actions",
+        "Monitoring & sauvegardes"
+      ],
+      "price": "à partir de 75 000 FCFA / mois",
+      "delay": "Contrat mensuel"
+    }
+  ],
+  "process": [
+    {
+      "step": "Découverte",
+      "duration": "3 jours",
+      "text": "On échange sur ton besoin, tes utilisateurs et ton budget. Je reformule tout dans un cahier des charges court."
+    },
+    {
+      "step": "Conception",
+      "duration": "3 à 5 jours",
+      "text": "Maquettes, architecture technique et schéma de base de données. Tu valides avant la moindre ligne de code."
+    },
+    {
+      "step": "Développement",
+      "duration": "par sprints de 1 semaine",
+      "text": "Une démo en ligne chaque semaine. Tu suis l'avancement et tu ajustes en cours de route."
+    },
+    {
+      "step": "Mise en ligne",
+      "duration": "1 à 2 jours",
+      "text": "Tests, déploiement, nom de domaine, HTTPS. Je te forme à l'utilisation de ton outil."
+    },
+    {
+      "step": "Suivi",
+      "duration": "30 jours inclus",
+      "text": "Corrections gratuites pendant un mois, puis maintenance si tu le souhaites."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Front-end",
+      "items": [
+        {
+          "name": "React + TypeScript (Vite)",
+          "level": 85
+        },
+        {
+          "name": "Tailwind CSS",
+          "level": 85
+        },
+        {
+          "name": "i18next · multilingue",
+          "level": 75
+        }
+      ]
+    },
+    {
+      "group": "Back-end",
+      "items": [
+        {
+          "name": "Node.js / NestJS",
+          "level": 85
+        },
+        {
+          "name": "PostgreSQL · Prisma",
+          "level": 82
+        },
+        {
+          "name": "Redis · Socket.io",
+          "level": 75
+        },
+        {
+          "name": "Auth JWT · OAuth2 · OTP",
+          "level": 80
+        }
+      ]
+    },
+    {
+      "group": "Data & IA",
+      "items": [
+        {
+          "name": "IA appliquée · API Anthropic",
+          "level": 78
+        },
+        {
+          "name": "SQL · analyse de données",
+          "level": 75
+        },
+        {
+          "name": "Python",
+          "level": 70
+        }
+      ]
+    },
+    {
+      "group": "DevOps",
+      "items": [
+        {
+          "name": "Coolify · OVHcloud",
+          "level": 80
+        },
+        {
+          "name": "Cloudflare · Scaleway",
+          "level": 70
+        },
+        {
+          "name": "Docker · CI/CD",
+          "level": 72
+        },
+        {
+          "name": "Tests Jest",
+          "level": 78
+        }
+      ]
+    }
+  ],
+  "tools": [
+    "VS Code",
+    "Git & GitHub",
+    "Jest",
+    "ESLint",
+    "AdminJS",
+    "Cloudinary",
+    "Resend",
+    "Google Maps API",
+    "Cloudflare"
+  ],
+  "softSkills": [
+    "Communication claire avec les non-techniciens",
+    "Autonomie et gestion du temps",
+    "Esprit d'analyse",
+    "Travail en équipe agile",
+    "Curiosité et veille technologique"
+  ],
+  "languages": [
+    {
+      "name": "Français",
+      "level": "Langue maternelle"
+    },
+    {
+      "name": "Anglais",
+      "level": "Professionnel (B2)"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "aukaz",
+      "title": "AUKAZ",
+      "tagline": "La marketplace automobile ivoirienne où acheteurs et vendeurs peuvent enfin se faire confiance.",
+      "category": "Web",
+      "tag": "Marketplace · Automobile",
+      "year": "2026",
+      "role": "Conception produit & développement full-stack",
+      "client": "SAID · Société Africaine d'Innovation Digitale",
+      "status": "Bêta publique",
+      "description": "Marketplace de véhicules d'occasion avec cote de prix indépendante, score de confiance et messagerie anti-arnaque.",
+      "problem": "Sur le marché ivoirien de l'occasion, les prix sont opaques et les arnaques fréquentes : les acheteurs ne savent ni quoi payer ni à qui se fier.",
+      "solution": "Une plateforme qui estime un prix juste à partir de comparables (avec une estimation de secours par IA), attribue un score de confiance via une checklist documentaire et protège les échanges grâce à une messagerie intégrée qui détecte les tentatives de contournement.",
+      "features": [
+        "Cote de prix indépendante : comparables + estimation de secours par IA",
+        "Score de confiance basé sur une checklist documentaire (vérification Danaya)",
+        "Messagerie temps réel avec détection des numéros et mots-clés d'arnaque",
+        "Paiement de la commission vendeur : Ecobank, Wave, Orange Money",
+        "Marché de pièces détachées avec demandes de devis géolocalisées",
+        "Outil interne de prospection terrain pour l'équipe commerciale",
+        "Back-office de modération avec journal d'audit"
+      ],
+      "architecture": {
+        "Front-end": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Tailwind CSS",
+          "i18next"
+        ],
+        "Back-end": [
+          "Node.js",
+          "NestJS",
+          "Socket.io",
+          "@nestjs/schedule"
+        ],
+        "Base de données": [
+          "PostgreSQL",
+          "Prisma",
+          "Redis"
+        ],
+        "IA & intégrations": [
+          "API Anthropic",
+          "Danaya",
+          "LeTexto",
+          "WhatsApp Cloud API",
+          "Google Maps",
+          "Cloudinary",
+          "Resend"
+        ],
+        "Infra": [
+          "Coolify",
+          "OVHcloud",
+          "Scaleway",
+          "Cloudflare"
+        ]
+      },
+      "challenges": [
+        {
+          "title": "Empêcher le contournement de la plateforme",
+          "text": "Des règles de détection analysent les messages en temps réel (numéros de téléphone, mots-clés d'arnaque) pour garder les échanges sécurisés dans la messagerie."
+        },
+        {
+          "title": "Un prix juste même sans données",
+          "text": "Quand les annonces comparables manquent, une estimation de secours par IA prend le relais. La même IA détecte aussi les photos non conformes."
+        },
+        {
+          "title": "Un périmètre qui grandit",
+          "text": "Architecture NestJS modulaire : un module par domaine métier, sans dépendance directe entre modules. Les pièces détachées et la prospection terrain ont pu s'ajouter sans fragiliser l'existant."
+        }
+      ],
+      "learnings": "La confiance se construit fonctionnalité par fonctionnalité : chaque décision produit doit répondre à une peur concrète de l'acheteur ou du vendeur.",
+      "results": [
+        {
+          "value": "700+",
+          "label": "tests Jest sur la logique métier critique"
+        },
+        {
+          "value": "10",
+          "label": "services tiers intégrés (paiement, SMS, IA, cartes…)"
+        },
+        {
+          "value": "3",
+          "label": "produits : voitures, pièces détachées, prospection"
+        }
+      ],
+      "stack": [
+        "NestJS",
+        "React",
+        "PostgreSQL",
+        "IA"
+      ],
+      "metric": "▲ 700+ tests automatisés",
+      "viz": "graph",
+      "images": [
+        {
+          "src": "/projects/aukaz/1.jpg",
+          "caption": "Accueil : recherche, catégories populaires, véhicules et pièces détachées"
+        },
+        {
+          "src": "/projects/aukaz/2.jpg",
+          "caption": "Annonces publiées avec filtres et recherche enregistrée"
+        }
+      ],
+      "link": "",
+      "demo": "https://aukaz.ci/"
+    },
+    {
+      "slug": "rapprochement-bancaire",
+      "title": "Rapprochement bancaire",
+      "tagline": "Fini le pointage ligne par ligne : la banque et la comptabilité se répondent automatiquement.",
+      "category": "Web",
+      "tag": "Finance · Data",
+      "year": "2025",
+      "role": "Stagiaire développeur Full-Stack",
+      "client": "EBURTIS",
+      "status": "Livré",
+      "description": "Application qui rapproche automatiquement les relevés bancaires avec les écritures comptables et met en évidence les écarts.",
+      "problem": "Le rapprochement entre relevés bancaires et comptabilité se faisait à la main : des heures de pointage, des erreurs difficiles à repérer et aucune vue claire des opérations en attente.",
+      "solution": "Une application qui importe les relevés, propose automatiquement les correspondances avec les écritures comptables, signale les écarts et garde l'historique de chaque validation.",
+      "features": [
+        "Import des relevés bancaires",
+        "Correspondance automatique relevé ↔ écriture comptable",
+        "Détection et signalement des écarts",
+        "Suivi des opérations non rapprochées",
+        "Historique et traçabilité de chaque validation"
+      ],
+      "architecture": {
+        "Front-end": [
+          "React"
+        ],
+        "Back-end": [
+          "Node.js"
+        ],
+        "Base de données": [
+          "PostgreSQL"
+        ]
+      },
+      "challenges": [
+        {
+          "title": "Des libellés jamais identiques",
+          "text": "La banque et la comptabilité ne décrivent pas une opération de la même façon. Le rapprochement croise donc plusieurs critères (montant, date, référence) plutôt que le seul libellé."
+        },
+        {
+          "title": "Garder la main sur l'automatique",
+          "text": "Chaque correspondance proposée reste validable par l'utilisateur : l'outil accélère le travail sans retirer le contrôle au comptable."
+        }
+      ],
+      "learnings": "Avec des données financières, la confiance passe par la traçabilité : chaque rapprochement doit pouvoir être expliqué.",
+      "results": [
+        {
+          "value": "Auto",
+          "label": "correspondance des opérations"
+        },
+        {
+          "value": "100 %",
+          "label": "des validations tracées"
+        },
+        {
+          "value": "Minutes",
+          "label": "au lieu d'heures de pointage"
+        }
+      ],
+      "stack": [
+        "React",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "metric": "▲ rapprochement automatisé",
+      "viz": "bars",
+      "images": [],
+      "link": "",
+      "demo": ""
+    },
+    {
+      "slug": "monvisa",
+      "title": "MonVisa",
+      "tagline": "La demande de visa officielle pour la Côte d'Ivoire, plus simple, plus claire, plus rassurante.",
+      "category": "Web",
+      "tag": "Refonte · Services",
+      "year": "2025",
+      "role": "Stagiaire développeur Full-Stack",
+      "client": "EBURTIS",
+      "status": "Livré",
+      "description": "Refonte de la plateforme MonVisa : interface modernisée, parcours de demande simplifié et meilleures performances.",
+      "problem": "Le parcours de demande était long et peu lisible : les utilisateurs se perdaient entre les étapes et ne savaient pas où en était leur dossier.",
+      "solution": "Une refonte complète de l'interface : parcours découpé en étapes claires, formulaires allégés, design responsive et pages plus rapides à charger.",
+      "features": [
+        "Parcours guidé en 5 étapes : type de visa, pré-enrôlement, rendez-vous, paiement, suivi",
+        "Paiement en ligne des frais de demande via Spay",
+        "Espace personnel pour suivre l'état de sa demande",
+        "Site bilingue français / anglais",
+        "Informations pratiques : pièces à fournir, pays demandeurs, bureaux de délivrance",
+        "Interface modernisée et responsive"
+      ],
+      "architecture": {
+        "Front-end": [
+          "React"
+        ],
+        "Back-end": [
+          "Node.js"
+        ]
+      },
+      "challenges": [
+        {
+          "title": "Refondre sans casser l'existant",
+          "text": "La plateforme était déjà utilisée : la refonte devait améliorer l'expérience sans perturber les dossiers en cours."
+        },
+        {
+          "title": "Rassurer l'utilisateur",
+          "text": "Une démarche de visa est stressante. Chaque étape affiche clairement ce qui est attendu et ce qui reste à faire."
+        }
+      ],
+      "learnings": "Une bonne refonte part des difficultés réelles des utilisateurs, pas seulement de l'esthétique.",
+      "results": [
+        {
+          "value": "100 %",
+          "label": "responsive mobile"
+        },
+        {
+          "value": "Étapes",
+          "label": "parcours de demande clarifié"
+        },
+        {
+          "value": "+ rapide",
+          "label": "chargement des pages"
+        }
+      ],
+      "stack": [
+        "React",
+        "Node.js",
+        "UX"
+      ],
+      "metric": "▲ parcours simplifié",
+      "viz": "wave",
+      "images": [
+        {
+          "src": "/projects/monvisa/1.jpg",
+          "caption": "Accueil : bannière AKWABA et parcours de demande en 5 étapes"
+        },
+        {
+          "src": "/projects/monvisa/2.jpg",
+          "caption": "Bureaux de délivrance du visa"
+        },
+        {
+          "src": "/projects/monvisa/3.jpg",
+          "caption": "Pays demandeurs, appel à l'action et pied de page"
+        }
+      ],
+      "link": "",
+      "demo": "https://monvisa.ci/vitrine/accueil"
+    },
+    {
+      "slug": "reseau-bravo",
+      "title": "Réseau sécurisé BRAVO",
+      "tagline": "Une infrastructure cloisonnée, fiable et prête à grandir avec l'entreprise.",
+      "category": "Réseau",
+      "tag": "Infrastructure · Sécurité",
+      "year": "2023",
+      "role": "Stagiaire Réseaux & Sécurité",
+      "client": "BRAVO",
+      "status": "Livré",
+      "description": "Conception et déploiement du réseau sécurisé de l'entreprise : segmentation, filtrage, Wi-Fi protégé et accès à distance.",
+      "problem": "Le réseau de l'entreprise était à plat : tous les postes communiquaient librement, sans cloisonnement ni contrôle des accès, ce qui exposait les données sensibles.",
+      "solution": "Un réseau segmenté par services, protégé par un pare-feu avec des règles de filtrage, un Wi-Fi sécurisé et un VPN pour le travail à distance.",
+      "features": [
+        "Segmentation des flux par VLAN",
+        "Pare-feu et règles de filtrage",
+        "Wi-Fi protégé",
+        "VPN pour le travail à distance",
+        "Documentation de l'infrastructure"
+      ],
+      "architecture": {
+        "Réseau": [
+          "VLAN",
+          "Routage",
+          "Wi-Fi"
+        ],
+        "Sécurité": [
+          "Pare-feu",
+          "VPN",
+          "Filtrage"
+        ]
+      },
+      "challenges": [
+        {
+          "title": "Sécuriser sans bloquer le travail",
+          "text": "Chaque règle de filtrage a été pensée pour protéger les données sans empêcher les équipes d'accéder aux ressources dont elles ont besoin."
+        },
+        {
+          "title": "Intervenir sur un réseau en service",
+          "text": "La migration s'est faite par étapes, pour ne pas interrompre l'activité de l'entreprise."
+        }
+      ],
+      "learnings": "La sécurité réseau est d'abord une question d'organisation : savoir qui doit accéder à quoi, avant de configurer le moindre équipement.",
+      "results": [
+        {
+          "value": "VLAN",
+          "label": "flux cloisonnés par service"
+        },
+        {
+          "value": "VPN",
+          "label": "accès distant sécurisé"
+        },
+        {
+          "value": "0",
+          "label": "interruption d'activité pendant la migration"
+        }
+      ],
+      "stack": [
+        "VLAN",
+        "Pare-feu",
+        "VPN"
+      ],
+      "metric": "▲ réseau cloisonné",
+      "viz": "graph",
+      "images": [],
+      "link": "",
+      "demo": ""
+    }
+  ],
+  "experience": [
+    {
+      "when": "2026 — aujourd'hui",
+      "title": "Développeur",
+      "org": "SAID · Société Africaine d'Innovation Digitale",
+      "text": "Conception et développement d'AUKAZ, marketplace automobile ivoirienne : cote de prix indépendante assistée par IA, score de confiance documentaire, messagerie temps réel anti-arnaque, paiements mobile money et marché de pièces détachées. Architecture NestJS modulaire, 700+ tests automatisés et déploiement continu sur Coolify.",
+      "tags": [
+        "NestJS",
+        "React",
+        "PostgreSQL",
+        "IA",
+        "Coolify"
+      ]
+    },
+    {
+      "when": "2025 — 2026",
+      "title": "Stagiaire développeur Full-Stack",
+      "org": "EBURTIS",
+      "text": "Conception d'une application de rapprochement bancaire : import des relevés, correspondance automatique avec les écritures comptables, détection des écarts et suivi des opérations non rapprochées. Ce qui prenait des heures de pointage manuel se fait désormais en quelques clics, avec une traçabilité complète. Refonte de la plateforme MonVisa : interface modernisée, parcours de demande simplifié et meilleures performances, pour une expérience plus fluide et plus rassurante.",
+      "tags": [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Data"
+      ]
+    },
+    {
+      "when": "2022 — 2023",
+      "title": "Stagiaire Réseaux & Sécurité",
+      "org": "BRAVO",
+      "text": "Conception et déploiement du réseau sécurisé de l'entreprise : segmentation des flux par VLAN, pare-feu et règles de filtrage, accès Wi-Fi protégé et VPN pour le travail à distance. Résultat : une infrastructure fiable, cloisonnée et prête à accompagner la croissance de l'entreprise.",
+      "tags": [
+        "Réseaux",
+        "Sécurité",
+        "VLAN",
+        "VPN"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "when": "2026 — 2027",
+      "title": "Master 2 BIHAR",
+      "org": "ESATIC",
+      "text": "En cours. Big Data Intelligence for Human Augmented Reality : Big Data, intelligence artificielle et réalité augmentée au service de l'humain."
+    },
+    {
+      "when": "2025 — 2026",
+      "title": "Master 1 BIHAR",
+      "org": "ESATIC",
+      "text": "Big Data Intelligence for Human Augmented Reality : la donnée et l'IA au service de l'humain."
+    },
+    {
+      "when": "2024 — 2025",
+      "title": "Licence DASI",
+      "org": "ESATIC",
+      "text": "Développement d'Applications et Systèmes d'Information."
+    },
+    {
+      "when": "2023 — 2024",
+      "title": "Licence en Génie Logiciel",
+      "org": "Université Nord-Sud (UNS)",
+      "text": "Conception, architecture et développement de logiciels."
+    },
+    {
+      "when": "2021 — 2022",
+      "title": "BTS Réseaux Informatiques et Télécoms (RIT)",
+      "org": "IT Academy",
+      "text": "Administration réseau, infrastructures et télécommunications."
+    },
+    {
+      "when": "2019 — 2020",
+      "title": "Baccalauréat",
+      "org": "Lycée Moderne 3 d'Agboville",
+      "text": "Obtention du baccalauréat."
+    },
+    {
+      "when": "2015 — 2016",
+      "title": "BEPC",
+      "org": "Lycée Moderne 3 d'Agboville",
+      "text": "Brevet d'Études du Premier Cycle."
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "year": "2025",
+      "link": ""
+    },
+    {
+      "name": "Meta Front-End Developer",
+      "issuer": "Coursera · Meta",
+      "year": "2024",
+      "link": ""
+    }
+  ],
+  "cv": {
+    "summary": "Développeur full-stack avec 3 ans d'expérience sur des applications web et des API en production, principalement en fintech, logistique et éducation. À l'aise sur toute la chaîne, de la base de données au déploiement.",
+    "file": ""
+  },
+  "github": {
+    "username": "",
+    "repos": [
+      {
+        "name": "aukaz-api",
+        "description": "API NestJS modulaire de la marketplace AUKAZ : annonces, transactions, messagerie temps réel, modération et estimation de prix par IA. 700+ tests Jest.",
+        "language": "TypeScript",
+        "platform": "GitHub",
+        "org": "SAID",
+        "visibility": "privé"
+      },
+      {
+        "name": "aukaz-web",
+        "description": "Front React + TypeScript (Vite, Tailwind, i18next) d'AUKAZ : recherche de véhicules, cote de prix, messagerie et paiement mobile money.",
+        "language": "TypeScript",
+        "platform": "GitHub",
+        "org": "SAID",
+        "visibility": "privé"
+      },
+      {
+        "name": "rapprochement-bancaire",
+        "description": "Application de rapprochement automatique entre relevés bancaires et écritures comptables, avec détection des écarts.",
+        "language": "JavaScript",
+        "platform": "GitLab",
+        "org": "EBURTIS",
+        "visibility": "privé"
+      },
+      {
+        "name": "monvisa",
+        "description": "Refonte de la plateforme MonVisa : interface modernisée, parcours de demande simplifié et pages plus rapides.",
+        "language": "JavaScript",
+        "platform": "GitLab",
+        "org": "EBURTIS",
+        "visibility": "privé"
+      },
+      {
+        "name": "portfolio",
+        "description": "Ce portfolio : React, Three.js (shader GLSL) et API Node.js / Express.",
+        "language": "JavaScript",
+        "platform": "GitHub",
+        "org": "Personnel",
+        "visibility": "public"
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "quote": "",
+      "name": "M. Brou",
+      "role": "Direction · BRAVO",
+      "context": "Mise en place du réseau sécurisé de l'entreprise pendant mon stage (2022 — 2023).",
+      "example": false
+    },
+    {
+      "quote": "",
+      "name": "Bamba",
+      "role": "Direction · EBURTIS",
+      "context": "Application de rapprochement bancaire et refonte de la plateforme MonVisa (2025 — 2026).",
+      "example": false
+    },
+    {
+      "quote": "",
+      "name": "Bouame",
+      "role": "Direction · SAID",
+      "context": "Conception et développement de la marketplace automobile AUKAZ (2026 — aujourd'hui).",
+      "example": false
+    }
+  ],
+  "faq": [
+    {
+      "q": "Quels types de projets réalises-tu ?",
+      "a": "Des applications web et mobiles sur mesure, des API et des outils métier qui exploitent les données. Par exemple : AUKAZ, une marketplace automobile, une application de rapprochement bancaire et la refonte de la plateforme MonVisa."
+    },
+    {
+      "q": "Que peux-tu faire avec mes données ?",
+      "a": "Les collecter, les nettoyer, les analyser et les transformer en tableaux de bord utiles pour décider. Formé en Master BIHAR (Big Data & IA) à l'ESATIC, j'intègre aussi l'IA quand elle apporte une vraie valeur, comme l'estimation de prix et la détection de photos non conformes sur AUKAZ."
+    },
+    {
+      "q": "Peux-tu intégrer le paiement mobile money ?",
+      "a": "Oui. J'ai déjà intégré Wave, Orange Money et Ecobank, ainsi que l'envoi de SMS, WhatsApp Business, Google Maps et des emails transactionnels."
+    },
+    {
+      "q": "Comment se déroule un projet ?",
+      "a": "Trois jours de découverte pour comprendre ton besoin, puis la conception (maquettes et architecture), que tu valides avant le développement. Ensuite, des sprints d'une semaine avec une démo à chaque fois, la mise en ligne, et 30 jours de suivi inclus."
+    },
+    {
+      "q": "Où sera hébergée mon application ?",
+      "a": "Sur des serveurs OVHcloud, avec un déploiement continu via Coolify et Cloudflare en façade pour la sécurité et la rapidité. Chaque mise à jour du code est mise en ligne automatiquement."
+    },
+    {
+      "q": "Peux-tu reprendre un projet existant ?",
+      "a": "Oui. Je commence par analyser l'existant, puis je propose un plan d'amélioration. C'est ce que j'ai fait avec la refonte de MonVisa : une interface modernisée sans perturber les demandes en cours."
+    },
+    {
+      "q": "Que se passe-t-il après la livraison ?",
+      "a": "Tu as 30 jours de corrections incluses. Ensuite, tu peux choisir un contrat de maintenance mensuel : mises à jour, sauvegardes, surveillance et déploiements."
+    },
+    {
+      "q": "Travailles-tu à distance ?",
+      "a": "Oui. Je suis basé à Abidjan et je travaille aussi bien sur place qu'à distance, avec un point d'avancement régulier."
+    }
+  ],
+  "contact": {
+    "email": "aagnissan5@gmail.com",
+    "github": "https://github.com/Nova2312-boop",
+    "linkedin": "",
+    "phone": "+225 07 12376651",
+    "whatsapp": "2250712376651"
+  }
+}

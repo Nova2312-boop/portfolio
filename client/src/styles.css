@@ -705,10 +705,6 @@ kbd { font-family: var(--f-mono); font-size: 10px; border: 1px solid var(--line)
 .cb-d2 { animation-delay: 0.2s; --sx: 5px; }
 .cb-d3 { animation-delay: 0.4s; --sx: -3px; }
 .cb-eye { animation: cb-led 1.8s ease-in-out infinite; }
-.cb-beam { fill: color-mix(in srgb, currentColor 16%, transparent); animation: cb-beam 1.8s ease-in-out infinite alternate; }
-.svc.scan::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; pointer-events: none; background: linear-gradient(90deg, transparent, var(--accent), transparent); box-shadow: 0 0 14px var(--accent); opacity: 0.55; animation: svc-scan 3.6s ease-in-out infinite; }
-@keyframes cb-beam { from { opacity: 0.35; } to { opacity: 0.8; } }
-@keyframes svc-scan { 0% { top: 0; } 50% { top: calc(100% - 2px); } 100% { top: 0; } }
 @keyframes cb-bob { to { transform: translateY(-2px); } }
 @keyframes cb-blink { 0%, 94%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
 @keyframes cb-led { 50% { opacity: 0.25; } }
@@ -720,8 +716,7 @@ kbd { font-family: var(--f-mono); font-size: 10px; border: 1px solid var(--line)
 @keyframes cb-spark { 0% { opacity: 1; transform: translate(0, 0); } 100% { opacity: 0; transform: translate(var(--sx, -5px), -9px); } }
 @keyframes cb-flicker { 0%, 90%, 92%, 95%, 100% { opacity: 1; } 91% { opacity: 0.5; } 94% { opacity: 0.75; } }
 @media (prefers-reduced-motion: reduce) {
-  .cardbot, .cardbot *, .svc.scan::after { animation: none !important; }
-  .svc.scan::after { display: none; }
+  .cardbot, .cardbot * { animation: none !important; }
   .cb-spark { opacity: 0; }
 }
 

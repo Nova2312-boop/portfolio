@@ -76,11 +76,10 @@ function Mechanic() {
   );
 }
 
-/** Nuage qui déploie sur un serveur, lequel balaie la carte avec un faisceau (Maintenance & DevOps). */
+/** Nuage qui déploie sur un serveur (Maintenance & DevOps). */
 function Deploy() {
   return (
     <g className="cb-bob">
-      <path className="cb-beam" d="M60 56 L18 80 L102 80 Z" />
       <path className="s" d="M42 26 a8 8 0 0 1 2 -15 a12 12 0 0 1 23 -3 a10 10 0 0 1 11 18 Z" />
       <line className="l cb-tether" x1="60" y1="27" x2="60" y2="37" />
       <path className="l" d="M56 34 L60 38 L64 34" />
@@ -108,6 +107,4 @@ export default function CardBot({ index }) {
   );
 }
 
-/** La 4ᵉ variante fait aussi passer une ligne de balayage sur la carte. */
-export const scansCard = (index) => index % BOTS.length === 3;
 

@@ -51,10 +51,13 @@ export default function Hero({ profile, started, onOpenCV }) {
       <div className="wrap hero-c">
         <div className="hero-top">
           <div className="eyebrow">// Informaticien · {profile.location}</div>
-          <div className={`avail ${profile.availability.available ? '' : 'busy'}`}>
-            <span className="dot" />
-            {profile.availability.label}
-          </div>
+          {/* badge affiché seulement si un texte de disponibilité est renseigné */}
+          {profile.availability.label && (
+            <div className={`avail ${profile.availability.available ? '' : 'busy'}`}>
+              <span className="dot" />
+              {profile.availability.label}
+            </div>
+          )}
         </div>
         <h1>
           <Scramble className="glitch" data-text={profile.name} text={profile.name} enabled={started} speak={speech.n} speakMs={speech.ms} />

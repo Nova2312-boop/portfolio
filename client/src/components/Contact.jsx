@@ -54,7 +54,7 @@ export default function Contact({ contact, availability }) {
               Un projet ?<br />
               <em>On en parle.</em>
             </p>
-            <p className="muted">{availability.label}. Je réponds en général sous 24 h.</p>
+            <p className="muted">{availability.label ? `${availability.label}. ` : ''}Je réponds en général sous 24 h.</p>
             <div className="links">
               <div className="row">
                 <span>email</span>

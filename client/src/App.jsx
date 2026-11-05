@@ -11,7 +11,6 @@ import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
 import Journey from './components/Journey.jsx';
 import GitHub from './components/GitHub.jsx';
-import Terminal from './components/Terminal.jsx';
 import Faq from './components/Faq.jsx';
 import Contact from './components/Contact.jsx';
 import CV from './components/CV.jsx';
@@ -42,7 +41,7 @@ export default function App() {
 
   const actions = useMemo(() => {
     if (!profile) return [];
-    const extra = [['process', 'méthode'], ['skills', 'compétences'], ['terminal', 'terminal'], ['faq', 'questions fréquentes']];
+    const extra = [['process', 'méthode'], ['skills', 'compétences'], ['faq', 'questions fréquentes']];
     return [
       // retour en haut de page (indispensable sur téléphone, où le menu remplace les liens)
       { group: 'Aller à', label: 'Accueil', hint: '↑', run: () => go('top') },
@@ -85,7 +84,6 @@ export default function App() {
             <Projects projects={profile.projects} />
             <Journey profile={profile} />
             <GitHub github={profile.github} />
-            <Terminal profile={profile} onOpenCV={openCV} />
             <Faq items={profile.faq} />
             <Contact contact={profile.contact} availability={profile.availability} />
           </main>

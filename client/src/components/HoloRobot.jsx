@@ -37,7 +37,7 @@ const holoFragment = /* glsl */ `
     gl_FragColor = vec4(c, a);
   }
 `;
-/* Faisceau lumineux : uDir = 1 brillant en bas (émetteur au sol), 0 brillant en haut (drone). */
+/* Faisceau lumineux de l'émetteur : uDir = 1 brillant en bas, 0 brillant en haut. */
 const beamVertex = /* glsl */ `varying float vH; void main(){ vH = uv.y; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`;
 const beamFragment = /* glsl */ `
   uniform vec3 uC; uniform float uT; uniform float uDir; uniform float uK; varying float vH;
@@ -56,8 +56,7 @@ const ease = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
 const GREET_EVERY = 25; // secondes entre deux « bonjour » tant que l'accueil est visible
 
 /**
- * Scène holographique de l'accueil : un robot qui salue et se présente,
- * des drones qui scannent et transportent des données, un mini-robot analyste.
+ * Scène holographique de l'accueil : un robot qui salue, suit la souris et « prononce » le nom.
  * Tout est construit en code (Three.js), aucun modèle externe.
  */
 /** Durée pendant laquelle le robot « prononce » le nom (ms) : le titre suit ce rythme. */
@@ -86,7 +85,6 @@ export default function HoloRobot({ name, started, onSpeak }) {
 
     const accent = cssColor('--holo-accent', '#6fc3ff');
     const signal = cssColor('--holo-signal', '#ffb547');
-    const ok = cssColor('--holo-ok', '#5fe0a6');
     const white = new THREE.Color('#ffffff');
     const scene = new THREE.Scene();
     const cam = new THREE.PerspectiveCamera(32, 1, 0.1, 60);
@@ -109,12 +107,10 @@ export default function HoloRobot({ name, started, onSpeak }) {
         })
       );
     const robotMat = holo(1, 0);
-    const droneMat = holo(0, 7);
     const glow = (color, opacity = 0.9) => keep(new THREE.MeshBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }));
     const lineMat = keep(new THREE.LineBasicMaterial({ color: accent, transparent: true, opacity: 0.35, blending: THREE.AdditiveBlending, depthWrite: false }));
     const eyeMat = glow(accent.clone().lerp(white, 0.5), 0.95);
     const coreMat = glow(signal, 0.85);
-    const okMat = glow(ok, 0.9);
     const ringMat = glow(accent, 0.6);
     const beam = (dir, k) =>
       keep(
@@ -221,88 +217,6 @@ export default function HoloRobot({ name, started, onSpeak }) {
     pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
     base.add(new THREE.Points(pGeo, keep(new THREE.PointsMaterial({ color: accent, size: 0.035, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending, depthWrite: false }))));
 
-    // ================= Drones =================
-    const makeDrone = (scale) => {
-      const g = new THREE.Group();
-      g.scale.setScalar(scale);
-      scene.add(g);
-      part(new RoundedBoxGeometry(0.5, 0.16, 0.5, 2, 0.06), g, droneMat);
-      part(new THREE.SphereGeometry(0.12, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2), g, droneMat, [0, 0.08, 0]);
-      const rotors = [];
-      for (const [x, z] of [[1, 1], [1, -1], [-1, 1], [-1, -1]]) {
-        part(new THREE.BoxGeometry(0.5, 0.03, 0.05), g, droneMat, [x * 0.3, 0, z * 0.3], [0, x * z > 0 ? -Math.PI / 4 : Math.PI / 4, 0]);
-        const ring = solid(new THREE.TorusGeometry(0.2, 0.012, 6, 28), g, ringMat, [x * 0.5, 0.06, z * 0.5]);
-        ring.rotation.x = Math.PI / 2;
-        const blades = new THREE.Group();
-        blades.position.set(x * 0.5, 0.07, z * 0.5);
-        g.add(blades);
-        for (const a of [0, Math.PI / 2]) {
-          const b = solid(new THREE.PlaneGeometry(0.36, 0.035), blades, eyeMat);
-          b.rotation.set(-Math.PI / 2, 0, a);
-        }
-        rotors.push(blades);
-      }
-      const led = solid(new THREE.SphereGeometry(0.035, 8, 6), g, okMat, [0, -0.05, 0.26]);
-      return { g, rotors, led };
-    };
-
-    // Drone 1 : scanner, il balaie la page avec un cône de lumière
-    const scanner = makeDrone(0.9);
-    const scanCone = new THREE.Group();
-    scanner.g.add(scanCone);
-    solid(new THREE.ConeGeometry(0.9, 2.6, 28, 1, true), scanCone, beam(0, 0.22), [0, -1.35, 0]);
-    const scanRing = solid(new THREE.RingGeometry(0.82, 0.9, 40), scanCone, ringMat, [0, -2.62, 0]);
-    scanRing.rotation.x = -Math.PI / 2;
-
-    // Drone 2 : transporteur, il promène un cube de données
-    const carrier = makeDrone(0.75);
-    const cargo = new THREE.Group();
-    cargo.position.y = -0.75;
-    carrier.g.add(cargo);
-    part(new THREE.BoxGeometry(0.42, 0.42, 0.42), cargo, droneMat);
-    solid(new THREE.OctahedronGeometry(0.12), cargo, coreMat);
-    const tether = new THREE.Line(keep(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, -0.05, 0), new THREE.Vector3(0, -0.54, 0)])), lineMat);
-    carrier.g.add(tether);
-
-    // Drone 3 : escorte, il tourne autour de la tête du robot
-    const escort = makeDrone(0.45);
-    const drones = [scanner, carrier, escort];
-
-    // ================= Mini-robot analyste + graphique holographique =================
-    const analyst = new THREE.Group();
-    scene.add(analyst);
-    part(new THREE.CylinderGeometry(0.2, 0.26, 0.42, 16), analyst, droneMat, [0, 0.21, 0]);
-    const aHead = new THREE.Group();
-    aHead.position.y = 0.62;
-    analyst.add(aHead);
-    part(new RoundedBoxGeometry(0.42, 0.32, 0.34, 2, 0.08), aHead, droneMat);
-    const aEye = solid(new THREE.SphereGeometry(0.05, 10, 8), aHead, eyeMat, [0.12, 0.02, 0.15]);
-    const aRing = solid(new THREE.RingGeometry(0.28, 0.32, 32), analyst, ringMat);
-    aRing.rotation.x = -Math.PI / 2;
-    const chart = new THREE.Group();
-    chart.position.set(1.35, 0.75, 0);
-    analyst.add(chart);
-    part(new THREE.PlaneGeometry(1.5, 0.95), chart, droneMat);
-    const bars = [];
-    for (let i = 0; i < 6; i++) {
-      const b = solid(new THREE.PlaneGeometry(0.14, 1), chart, i === 4 ? coreMat : ringMat, [-0.55 + i * 0.22, -0.4, 0.01]);
-      b.geometry.translate(0, 0.5, 0);
-      bars.push(b);
-    }
-    const trendPts = Array.from({ length: 6 }, () => new THREE.Vector3());
-    const trendGeo = keep(new THREE.BufferGeometry().setFromPoints(trendPts));
-    // mise à jour sur place : pas de nouveau tampon GPU à chaque image
-    const setLine = (geo, pts) => {
-      const a = geo.attributes.position;
-      pts.forEach((v, i) => a.setXYZ(i, v.x, v.y, v.z));
-      a.needsUpdate = true;
-      geo.computeBoundingSphere();
-    };
-    chart.add(new THREE.Line(trendGeo, keep(new THREE.LineBasicMaterial({ color: ok, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending }))));
-    const rayGeo = keep(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]));
-    const ray = new THREE.Line(rayGeo, lineMat);
-    analyst.add(ray);
-
     // ================= Mise en page selon la taille de l'écran =================
     let hw = 4.6, wide = true;
     const layout = () => {
@@ -315,16 +229,9 @@ export default function HoloRobot({ name, started, onSpeak }) {
       hw = (viewH * cam.aspect) / 2;
       wide = cam.aspect > 1.15;
       // bien à droite pour laisser le grand nom lisible
-      // grand écran : robot à droite du texte ; téléphone : robot réduit en bas à droite, drones bien visibles
+      // grand écran : robot à droite du texte ; téléphone : robot réduit en bas à droite
       stage.position.set(wide ? hw * 0.64 : hw * 0.5, wide ? 0 : -1.4, 0);
       stage.scale.setScalar(wide ? 0.88 : 0.48);
-      scanner.g.scale.setScalar(wide ? 0.9 : 1.2);
-      carrier.g.scale.setScalar(wide ? 0.75 : 1.05);
-      escort.g.scale.setScalar(wide ? 0.45 : 0.6);
-      analyst.visible = wide;
-      // sous les boutons, à gauche, en plus petit
-      analyst.scale.setScalar(0.62);
-      analyst.position.set(-hw * 0.38, -1.55, 0.6);
       return true;
     };
 
@@ -371,44 +278,6 @@ export default function HoloRobot({ name, started, onSpeak }) {
       eyeMat.opacity = talking ? 0.75 + Math.sin(t * 22) * 0.2 : 0.95;
       if (!still && startedRef.current && g < 0 && t > 1.2) greet();
       else if (!still && g > GREET_EVERY) greet();
-
-      // drones
-      drones.forEach((d, i) => {
-        d.rotors.forEach((r, j) => (r.rotation.y += dt * (28 + j * 3)));
-        d.led.material.opacity = Math.sin(t * 6 + i * 2) > 0.6 ? 1 : 0.25;
-      });
-      scanner.g.position.set(-hw * 0.55 + Math.sin(t * 0.22) * hw * 0.3, 3.35 + Math.sin(t * 0.6) * 0.15, -1.5 + Math.cos(t * 0.22) * 0.8);
-      scanner.g.rotation.z = Math.cos(t * 0.22) * 0.12;
-      scanCone.rotation.z = Math.sin(t * 1.1) * 0.35;
-      scanCone.rotation.x = Math.sin(t * 0.7) * 0.2;
-
-      // patrouille en bas, entre le texte et le robot
-      const cx = (wide ? hw * 0.05 : 0) + Math.sin(t * 0.25) * hw * (wide ? 0.12 : 0.5);
-      carrier.g.position.set(cx, -0.95 + Math.sin(t * 1.4) * 0.12, 1.2);
-      carrier.g.rotation.z = -Math.cos(t * 0.18) * 0.18;
-      cargo.rotation.y = t * 0.9;
-      cargo.rotation.x = Math.sin(t * 0.7) * 0.3;
-
-      const ea = t * 0.7;
-      const ss = stage.scale.x;
-      escort.g.position.set(stage.position.x + Math.cos(ea) * 1.7 * ss, stage.position.y + (robot.position.y + 2.6) * ss + Math.sin(t * 1.6) * 0.2, Math.sin(ea) * 1.7 * ss);
-      escort.g.rotation.y = -ea;
-
-      // mini-robot analyste : il regarde son graphique et le met à jour
-      if (analyst.visible) {
-        aHead.rotation.y = -0.9 + Math.sin(t * 0.8) * 0.25;
-        aRing.scale.setScalar(1 + Math.sin(t * 3) * 0.06);
-        bars.forEach((b, i) => {
-          b.scale.y = 0.18 + (0.5 + 0.5 * Math.sin(t * 0.9 + i * 0.9)) * (0.25 + i * 0.09);
-          trendPts[i].set(-0.55 + i * 0.22, -0.4 + b.scale.y + 0.06, 0.02);
-        });
-        setLine(trendGeo, trendPts);
-        const from = aHead.localToWorld(aEye.position.clone());
-        const to = chart.localToWorld(new THREE.Vector3(-0.6, 0, 0));
-        analyst.worldToLocal(from);
-        analyst.worldToLocal(to);
-        setLine(rayGeo, [from, to]);
-      }
 
       const p = pGeo.attributes.position;
       for (let i = 0; i < N; i++) {

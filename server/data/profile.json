@@ -695,10 +695,43 @@
     }
   ],
   "cv": {
-    "summary": "Développeur web & mobile et data analyste, étudiant en Master 2 BIHAR à l'ESATIC. Rigoureux et curieux, je conçois des applications fiables, de l'API au déploiement, et je transforme les données en décisions claires.",
+    "summary": "Développeur web & mobile et data analyst, étudiant en Master 2 BIHAR à l'ESATIC. Rigoureux et curieux, je conçois des applications fiables, de l'API au déploiement, et je transforme les données en décisions claires.",
     "photo": "/cv/photo.jpg",
     "interests": [],
-    "file": ""
+    "file": "/cv/AGNISSAN-Ange-Samuel-CV.pdf",
+    "title": "Développeur web & mobile · Data analyst",
+    "languages": [
+      {
+        "name": "Français",
+        "level": 100
+      },
+      {
+        "name": "Anglais (B2)",
+        "level": 70
+      }
+    ],
+    "toolGroups": [
+      {
+        "label": "Frontend",
+        "value": "React · TypeScript · Vite · Tailwind CSS · i18next (fr/en)"
+      },
+      {
+        "label": "Backend & Auth",
+        "value": "Node.js · NestJS (architecture modulaire) · PostgreSQL · Prisma · Redis · Socket.io · AdminJS · JWT · OAuth2 Google · OTP SMS"
+      },
+      {
+        "label": "Intégrations",
+        "value": "Wave · Orange Money · Ecobank Checkout · WhatsApp Business API · Google Maps · API Claude · Cloudinary · Resend · Danaya"
+      },
+      {
+        "label": "Déploiement",
+        "value": "Coolify (CI/CD) · OVHcloud · Scaleway · Cloudflare · Git & GitHub"
+      },
+      {
+        "label": "Tests & qualité",
+        "value": "Jest · React Testing Library · ESLint · TypeScript strict"
+      }
+    ]
   },
   "github": {
     "username": "",

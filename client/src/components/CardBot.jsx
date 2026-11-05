@@ -76,11 +76,10 @@ function Mechanic() {
   );
 }
 
-/** Robot sphérique qui scanne la carte avec un faisceau. */
+/** Petit robot sphérique en vol stationnaire au-dessus de la carte. */
 function Scanner() {
   return (
     <g className="cb-bob">
-      <path className="cb-beam" d="M60 36 L18 80 L102 80 Z" />
       <line className="l" x1="60" y1="8" x2="60" y2="2" />
       <circle className="o cb-led" cx="60" cy="2" r="2" />
       <circle className="s" cx="60" cy="22" r="14" />
@@ -105,5 +104,3 @@ export default function CardBot({ index }) {
   );
 }
 
-/** La 4ᵉ variante (scanner) fait aussi passer une ligne de balayage sur la carte. */
-export const scansCard = (index) => index % BOTS.length === 3;

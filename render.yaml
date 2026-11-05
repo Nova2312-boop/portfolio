@@ -1,0 +1,11 @@
+# Déploiement Render (offre gratuite) : New + → Blueprint → choisir ce dépôt.
+services:
+  - type: web
+    name: agnissan-portfolio
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true

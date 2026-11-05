@@ -79,7 +79,8 @@ function Mechanic() {
 /** Nuage qui déploie sur un serveur (Maintenance & DevOps). */
 function Deploy() {
   return (
-    <g className="cb-bob">
+    // décalé de 24 : le bas du serveur (y = 56) se pose sur le bord de la carte (y = 80)
+    <g transform="translate(0 24)">
       <path className="s" d="M42 26 a8 8 0 0 1 2 -15 a12 12 0 0 1 23 -3 a10 10 0 0 1 11 18 Z" />
       <line className="l cb-tether" x1="60" y1="27" x2="60" y2="37" />
       <path className="l" d="M56 34 L60 38 L64 34" />

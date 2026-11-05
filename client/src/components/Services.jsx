@@ -1,6 +1,6 @@
 import SectionHead from './SectionHead.jsx';
 import Reveal from './Reveal.jsx';
-import CardBot from './CardBot.jsx';
+import CardBot, { scansCard } from './CardBot.jsx';
 
 export default function Services({ services }) {
   const ask = (title) => {
@@ -20,7 +20,7 @@ export default function Services({ services }) {
         <SectionHead addr="0x02" title="Services" />
         <div className="services">
           {services.map((s, i) => (
-            <Reveal as="article" className={`svc ${s.featured ? 'featured' : ''}`} key={s.code}>
+            <Reveal as="article" className={`svc ${s.featured ? 'featured' : ''} ${scansCard(i) ? 'scan' : ''}`} key={s.code}>
               <CardBot index={i} />
               <div className="svc-top">
                 <span className="addr">{s.code}</span>

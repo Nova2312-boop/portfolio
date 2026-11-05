@@ -76,21 +76,25 @@ function Mechanic() {
   );
 }
 
-/** Petit robot sphérique en vol stationnaire au-dessus de la carte. */
-function Scanner() {
+/** Nuage qui déploie sur un serveur, lequel balaie la carte avec un faisceau (Maintenance & DevOps). */
+function Deploy() {
   return (
     <g className="cb-bob">
-      <line className="l" x1="60" y1="8" x2="60" y2="2" />
-      <circle className="o cb-led" cx="60" cy="2" r="2" />
-      <circle className="s" cx="60" cy="22" r="14" />
-      <circle className="g cb-eye" cx="60" cy="24" r="4" />
-      <path className="l" d="M46 22 L38 18 M74 22 L82 18" />
-      <path className="s" d="M52 35 L60 40 L68 35" />
+      <path className="cb-beam" d="M60 56 L18 80 L102 80 Z" />
+      <path className="s" d="M42 26 a8 8 0 0 1 2 -15 a12 12 0 0 1 23 -3 a10 10 0 0 1 11 18 Z" />
+      <line className="l cb-tether" x1="60" y1="27" x2="60" y2="37" />
+      <path className="l" d="M56 34 L60 38 L64 34" />
+      <rect className="s" x="42" y="40" width="36" height="8" rx="2" />
+      <rect className="s" x="42" y="48" width="36" height="8" rx="2" />
+      <circle className="o cb-led" cx="48" cy="44" r="1.6" />
+      <circle className="g cb-eye" cx="48" cy="52" r="1.6" />
+      <line className="l" x1="56" y1="44" x2="72" y2="44" />
+      <line className="l" x1="56" y1="52" x2="72" y2="52" />
     </g>
   );
 }
 
-const BOTS = [Carrier, Drone, Mechanic, Scanner];
+const BOTS = [Carrier, Drone, Mechanic, Deploy];
 const PLACES = ['cb-left', 'cb-right', 'cb-corner', 'cb-left'];
 
 export default function CardBot({ index }) {
@@ -103,4 +107,7 @@ export default function CardBot({ index }) {
     </span>
   );
 }
+
+/** La 4ᵉ variante fait aussi passer une ligne de balayage sur la carte. */
+export const scansCard = (index) => index % BOTS.length === 3;
 

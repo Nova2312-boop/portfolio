@@ -24,7 +24,7 @@ const LABELS = {
   language: 'Langage', platform: 'Plateforme', visibility: 'Visibilité', testimonials: 'Avis clients', quote: 'Citation',
   example: 'Exemple à remplacer', context: 'Collaboration (affichée tant qu’il n’y a pas de citation)', faq: 'Questions fréquentes', q: 'Question', a: 'Réponse', contact: 'Contact',
   email: 'Email', linkedin: 'LinkedIn', phone: 'Téléphone', whatsapp: 'WhatsApp (chiffres seulement)', src: 'Image',
-  caption: 'Légende', photo: 'Photo du CV', interests: 'Centres d’intérêt (CV)',
+  caption: 'Légende', photo: 'Photo', interests: 'Centres d’intérêt (CV)',
 };
 const LONG = new Set(['context', 'tagline', 'text', 'description', 'problem', 'solution', 'learnings', 'summary', 'quote', 'a', 'about']);
 const SELECTS = { viz: ['wave', 'graph', 'bars'], visibility: ['privé', 'public'], platform: ['GitHub', 'GitLab', 'Bitbucket'] };

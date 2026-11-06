@@ -1,6 +1,7 @@
 import SectionHead from './SectionHead.jsx';
 import Reveal from './Reveal.jsx';
 import { useCountUp, useInView } from '../hooks/motion.js';
+import { assetUrl } from '../api.js';
 
 function Stat({ stat, active }) {
   const n = useCountUp(stat.value, active, 1400);
@@ -31,6 +32,16 @@ export default function About({ profile, onOpenCV }) {
               Consulter mon CV ↗
             </button>
           </Reveal>
+          <div className="about-side">
+          {profile.photo && (
+            <figure className="me">
+              <img src={assetUrl(profile.photo)} alt={profile.name} width="640" height="800" loading="lazy" />
+              <figcaption>
+                <span>ID · {profile.name}</span>
+                <span className="ok-text">● en ligne</span>
+              </figcaption>
+            </figure>
+          )}
           <div className="specs">
             {profile.specs.map((s) => (
               <div key={s.label}>
@@ -46,6 +57,7 @@ export default function About({ profile, onOpenCV }) {
               <span>Statut</span>
               <span className={a.available ? 'ok-text' : 'warn-text'}>● {a.available ? 'Disponible' : 'En mission'}</span>
             </div>
+          </div>
           </div>
         </div>
         <div className="stats" ref={ref}>
